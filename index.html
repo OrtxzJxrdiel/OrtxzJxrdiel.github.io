@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--========== TITTLE ==========-->
+    <title>Claro Cloud</title>
+
+    <!--========== STYLES ==========-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <div class="particles-js"></div>
+
+    <!--========== MAIN ==========-->
+    <main class="content">
+      <div class="header">
+        <p class="terminal-line">> Accediendo al nodo: 192.168.0.1</p>
+        <p class="terminal-line">> Estado: EN CONSTRUCCIÓN</p>
+      </div>
+
+      <h1 class="glitch" data-text="COMING SOON">MUY PRONTO</h1>
+
+      <div class="countdown">
+        <div><span id="days">00</span><label>días</label></div>
+        <div><span id="hours">00</span><label>horas</label></div>
+        <div><span id="minutes">00</span><label>minutos</label></div>
+        <div><span id="seconds">00</span><label>segundos</label></div>
+      </div>
+
+      <p class="terminal-line">> Lanzamiento estimado: 12/08/2026</p>
+      <p class="terminal-line">
+        > Ingrese su correo para recibir acceso prioritario
+      </p>
+
+      <form onsubmit="mostrarMensaje(); return false" class="form">
+        <input type="email" name="email" placeholder="Correo electrónico" required/>
+        <button type="submit">ENVIAR</button>
+      </form>
+      <p id="mensaje"></p>
+
+      <button id="toggle-theme"></button>
+    </main>
+
+    <!--========== SCRIPTS ==========-->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
