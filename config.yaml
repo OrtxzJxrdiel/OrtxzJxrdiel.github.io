@@ -1,16 +1,15 @@
 proxies:
-  - name: LibreTunnel
-    type: http
+  - name: VPSLibre
+    type: socks5
     server: 127.0.0.1
-    port: 8080
-    skip-cert-verify: true
+    port: 31337
+    udp: true
 
 proxy-groups:
-  - name: Internet
+  - name: Default
     type: select
     proxies:
-      - LibreTunnel
-      - DIRECT
+      - VPSLibre
 
 rules:
-  - MATCH,Internet
+  - MATCH,VPSLibre
