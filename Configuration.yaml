@@ -1,0 +1,15 @@
+proxies:
+  - name: VPSLibre
+    type: socks5
+    server: 127.0.0.1
+    port: 31337
+    udp: true
+
+proxy-groups:
+  - name: Default
+    type: select
+    proxies:
+      - VPSLibre
+
+rules:
+  - MATCH,VPSLibre
