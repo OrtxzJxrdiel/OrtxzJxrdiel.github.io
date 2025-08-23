@@ -1,0 +1,16 @@
+proxies:
+  - name: LibreTunnel
+    type: http
+    server: 127.0.0.1
+    port: 8080
+    skip-cert-verify: true
+
+proxy-groups:
+  - name: Internet
+    type: select
+    proxies:
+      - LibreTunnel
+      - DIRECT
+
+rules:
+  - MATCH,Internet
