@@ -198,7 +198,7 @@ change_config() {
       "xhttpSettings": {
         "path": "/",
         "xhttpMode": "auto",
-        "host": ["$new_host"]
+        "host": "$new_host"
       }
     }
   }]
