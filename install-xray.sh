@@ -20,7 +20,9 @@ NC='\033[0m'
 # 🔧 Preparar entorno
 echo -e "${BLUE}🔧 Preparando entorno Termux...${NC}"
 pkg update -y && pkg upgrade -y
-pkg install -y curl unzip proot git build-essential
+pkg install -y curl unzip proot git build-essential toilet ruby python
+gem install lolcat
+pip install speedtest-cli
 
 # 📁 Crear estructura
 mkdir -p $BIN $PROXY
@@ -112,6 +114,7 @@ NC='\033[0m'
 
 banner() {
   clear
+  toilet -f pagga "Jxrdiel Ortxz" | lolcat
   echo -e "${GREEN}"
   echo "╔════════════════════════════════════╗"
   echo "║ 🌀 Xray XHTTP - 🔥 Flow Nica 🔥     ║"
@@ -207,6 +210,15 @@ EOF
     echo -e "${GREEN}✅ Configuración actualizada con éxito.${NC}"
 }
 
+medidor_red() {
+  banner
+  echo -e "${BLUE}📶 Latencia (ping a google.com):${NC}"
+  ping -c 4 google.com | tail -2
+  echo -e "${BLUE}🚀 Velocidad (speedtest-cli):${NC}"
+  speedtest-cli --simple || echo -e "${RED}❌ speedtest-cli no disponible${NC}"
+  termux-vibrate -d 200
+}
+
 menu() {
   banner
   echo -e "\n${BLUE}1️⃣ Iniciar conexión${NC}"
@@ -215,7 +227,8 @@ menu() {
   echo -e "${BLUE}4️⃣ Verificar IP con proxychains4${NC}"
   echo -e "${BLUE}5️⃣ Ver logs${NC}"
   echo -e "${BLUE}6️⃣ Cambiar datos del VPS${NC}"
-  echo -e "${BLUE}7️⃣ Salir${NC}"
+  echo -e "${BLUE}7️⃣ Medidor de red"
+  echo -e "${BLUE}8️⃣ Salir${NC}"
   read -p $'\n👉 Selección: ' opt
 
   case $opt in
@@ -225,7 +238,8 @@ menu() {
     4) verificar_proxychains ;;
     5) ver_logs ;;
     6) change_config ;; # 🆕 Llamada a la nueva función
-    7) exit ;;
+    7) medidor_red;;
+    8) exit ;;
     *) echo -e "${RED}❌ Opción inválida${NC}" ;;
   esac
 }
